@@ -1,5 +1,15 @@
 angular.module('SimpleRESTIonic.controllers', [])
 
+    .controller('MenuCtrl', function($state) {
+        var menu = this;
+
+        function go(state) {
+            $state.go(state);
+        }
+
+        menu.go = go;
+    })
+
     .controller('LoginCtrl', function (Backand, $state, $rootScope, LoginService) {
         var login = this;
 
@@ -102,6 +112,10 @@ angular.module('SimpleRESTIonic.controllers', [])
             vm.isCreating = false;
         }
 
+        function myEvent($event) {
+            console.log("clicked:" + $event);
+        }
+
         vm.objects = [];
         vm.edited = null;
         vm.isEditing = false;
@@ -116,6 +130,7 @@ angular.module('SimpleRESTIonic.controllers', [])
         vm.cancelCreate = cancelCreate;
         vm.goToBackand = goToBackand;
         vm.isAuthorized = false;
+        vm.myEvent = myEvent;
 
         $rootScope.$on('authorized', function () {
             vm.isAuthorized = true;

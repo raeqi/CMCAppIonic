@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'SimpleRESTIonic' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('SimpleRESTIonic', ['ionic', 'backand', 'SimpleRESTIonic.controllers', 'SimpleRESTIonic.services'])
+angular.module('SimpleRESTIonic', ['ionic', 'backand', 'SimpleRESTIonic.controllers', 'SimpleRESTIonic.services', 'ion-floating-menu'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -31,6 +31,7 @@ angular.module('SimpleRESTIonic', ['ionic', 'backand', 'SimpleRESTIonic.controll
             .state('tab', {
                 url: '/tabs',
                 abstract: true,
+                controller: 'MenuCtrl as menu',
                 templateUrl: 'templates/tabs.html'
             })
             .state('tab.dashboard', {
