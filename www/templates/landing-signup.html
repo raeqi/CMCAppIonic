@@ -1,0 +1,35 @@
+<ion-view hide-nav-bar="true">
+    <ion-pane class="landing padding has-header">
+        <button ng-click="$ionicGoBack()" class="button back-button buttons button-clear header-item">
+            <i class="icon ion-ios-arrow-back"></i>   
+            <span class="back-text" style="transform: translate3d(0px, 0px, 0px);"><span class="default-title">Back</span></span>
+        </button>
+    </ion-pane>
+    <div class="fixed-bottom">
+        <form ng-submit="login.signin()">
+            <div class="row">
+                <div class="col">
+                    <div class="list">
+                      <label class="item item-input" style="border-color: #fff;">
+                        <input id="name" name="name" type="text" placeholder="Your full name" ng-model="login.name">
+                      </label>
+                      <label class="item item-input" style="border-bottom-color: #fff;border-left: #fff;border-right: #fff;">
+                        <input id="studentId" name="studentId" type="text" placeholder="Your student number" ng-model="login.studentId">
+                      </label>
+                      <label class="item item-input" style="border-bottom-color: #fff;border-left: #fff;border-right: #fff;">
+                        <input id="email" name="email" type="email" placeholder="Your email" ng-model="login.email">
+                      </label>
+                      <label class="item item-input" style="border-bottom-color: #fff;border-left: #fff;border-right: #fff;">
+                        <input id="password" name="password" type="password" placeholder="Your password" ng-model="login.password">
+                      </label>
+                    </div>
+                    <div>
+                        <button class="button button-block button-positive" type="submit">
+                            Sign Up
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</ion-view>

@@ -7,14 +7,30 @@ navigation history that also transitions its views in and out.
     <ion-tab title="Items"  icon="ion-home" href="#/tabs/dashboard">
         <ion-nav-view name="tab-dashboard"></ion-nav-view>
     </ion-tab>
-    <ion-tab title="Login" icon="ion-log-in" href="#/tabs/login">
-        <ion-nav-view name="tab-login"></ion-nav-view>
+    <ion-tab title="Profile" icon="ion-log-in" href="#/tabs/profile">
+        <ion-nav-view name="tab-profile"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Event" icon="ion-ios-list-outline" href="#/tabs/event">
+        <ion-nav-view name="tab-event"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Music" icon="ion-music-note" href="#/tabs/music">
+        <ion-nav-view name="tab-music"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Sponsor" icon="ion-bag" href="#/tabs/sponsor">
+        <ion-nav-view name="tab-sponsor"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Info" icon="ion-information" href="#/tabs/info">
+        <ion-nav-view name="tab-info"></ion-nav-view>
     </ion-tab>
 </ion-tabs>
 
-<ion-floating-menu has-footer="false" button-color="#2AC9AA" icon="ion-plus" iconColor="#fff">
-    <ion-floating-item icon="ion-camera" click="menu.go('tab.dashboard')"></ion-floating-item>
-    <ion-floating-item icon="ion-person" click="menu.go('tab.login')"></ion-floating-item>
+<ion-floating-menu has-footer="false" button-color="#2AC9AA" icon="ion-plus" icon-color="#fff">
+<!--     <ion-floating-item icon="ion-camera" button-color="#2AC9AA" icon-color="#fff" click="menu.go('tab.dashboard')"></ion-floating-item> -->
+    <ion-floating-item icon="ion-home" button-color="#2AC9AA" icon-color="#fff" click="menu.go('tab.event')"></ion-floating-item>
+    <ion-floating-item icon="ion-person" button-color="#2AC9AA" icon-color="#fff" click="menu.go('tab.profile')"></ion-floating-item>
+    <ion-floating-item icon="ion-music-note" button-color="#2AC9AA" icon-color="#fff" click="menu.go('tab.music')"></ion-floating-item>
+    <ion-floating-item icon="ion-bag" button-color="#2AC9AA" icon-color="#fff" click="menu.go('tab.sponsor')"></ion-floating-item>
+    <ion-floating-item icon="ion-information" button-color="#2AC9AA" icon-color="#fff" click="menu.go('tab.info')"></ion-floating-item>
 </ion-floating-menu>
 
 
