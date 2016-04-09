@@ -1,6 +1,8 @@
 angular.module('SimpleRESTIonic.controllers', [])
-    .controller('AuthCtrl', function($state) {
+    .controller('AuthCtrl', function($state, $ionicHistory) {
         var auth = this;
+
+        $ionicHistory.clearHistory();
 
         function go(state) {
             $state.go(state);
@@ -57,7 +59,11 @@ angular.module('SimpleRESTIonic.controllers', [])
                 title: '漫长的告别 是青春盛宴',
                 location: '93 Charles St. West (Isabel Bader Theatre)',
                 date: '4月8日周六 6pm-9:30pm',
-                price: '25',
+                price: {
+                    regular: '25',
+                    vip: '20',
+                    premium: '35'
+                }
             },
             {
                 image: 'http://mmbiz.qpic.cn/mmbiz/m2bSKBPIGnJibaXoQVoTd7TEzj9hoFc5WrfsaUocfOjGibLe87x1dGZaW6iaesJcj7FUcvvmqf6OFicv9dbw9slL3Q/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1',
@@ -66,7 +72,11 @@ angular.module('SimpleRESTIonic.controllers', [])
                 title: '决赛在即，锋芒尽露',
                 location: '93 Charles St. West (Isabel Bader Theatre)',
                 date: '11月21日 6pm-9:30pm',
-                price: '30',
+                price: {
+                    regular: '25',
+                    vip: '20',
+                    premium: '35'
+                }
             },
             {
                 image: 'http://mmbiz.qpic.cn/mmbiz/m2bSKBPIGnK1dL6JloSNy0cESLDFL8D9ftyfBydLiaTPKx4vTSiaNMn5qDJIcLCfqmg3m3fCOkfLkGicOLG2k3g9w/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1',
@@ -75,12 +85,35 @@ angular.module('SimpleRESTIonic.controllers', [])
                 title: '魔王驾到！！！',
                 location: 'OISE Auditorium',
                 date: '11月6日 6pm-9:30pm',
-                price: '30',
+                price: {
+                    regular: '25',
+                    vip: '20',
+                    premium: '35'
+                }
             }
         ];
 
+        var shownGroup;
+        /*
+        * if given group is the selected group, deselect it
+        * else, select the given group
+        */
+        function toggleGroup(group) {
+            if (isGroupShown(group)) {
+                shownGroup = null;
+            } else {
+                shownGroup = group;
+            }
+        };
+
+        function isGroupShown(group) {
+            return shownGroup === group;
+        };
+
         event.events = events;
         event.title = navTitle;
+        event.toggleGroup = toggleGroup;
+        event.isGroupShown = isGroupShown;
 
     })
 
