@@ -3,20 +3,21 @@
     </ion-pane>
     <div class="fixed-bottom">
         <div class="row responsive-sm">
-            <div class="col">
+                    <div class="col">
                 <div>
-                    <button class="button button-outline button-block button-positive" ng-click="auth.go('landing.login')">
-                        Login
-                    </button>
-                </div>
-            </div>
-            <div class="col">
-                <div>
-                    <button class="button button-outline button-block button-positive" ng-click="auth.go('landing.signup')">
+                    <button class="button button-block button-balanced" ng-click="auth.go('landing.signup')">
                         Sign Up
                     </button>
                 </div>
             </div>
+            <div class="col">
+                <div>
+                    <button class="button button-clear button-block button-positive" ng-click="auth.go('landing.login')">
+                        Login
+                    </button>
+                </div>
+            </div>
+
         </div>
     </div>
 </ion-view>
