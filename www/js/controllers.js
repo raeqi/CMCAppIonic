@@ -18,6 +18,23 @@ angular.module('SimpleRESTIonic.controllers', [])
 
     })
 
+    .controller('ProfileCtrl', function($state, $rootScope, LoginService) {
+        var profile = this;
+
+        function signout() {
+            LoginService.signout()
+                .then(function () {
+                    //$state.go('tab.login');
+                    console.log("signed out");
+                    $rootScope.$broadcast('logout');
+                    $state.go($state.current, {}, {reload: true});
+                })
+
+        }
+
+        profile.signout = signout;
+    })
+
     .controller('MenuCtrl', function($state) {
         var menu = this;
 

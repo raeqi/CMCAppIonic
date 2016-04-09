@@ -70,6 +70,15 @@ angular.module('SimpleRESTIonic', ['ionic', 'backand', 'SimpleRESTIonic.controll
                 controller: 'MenuCtrl as menu',
                 templateUrl: 'templates/tabs.html'
             })
+            .state('tab.profile', {
+                url: '/profile',
+                views: {
+                    'tab-profile': {
+                        templateUrl: 'templates/tab-profile.html',
+                        controller: 'ProfileCtrl as profile'
+                    }
+                }
+            })
             .state('tab.dashboard', {
                 url: '/dashboard',
                 views: {
