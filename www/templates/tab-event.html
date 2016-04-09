@@ -4,7 +4,7 @@
       pulling-text="Pull to refresh..."
       on-refresh="doRefresh()">
     </ion-refresher>
-    <div class="ticket-card" ng-repeat="eachEvent in event.events">
+    <div class="ticket-card" ng-repeat="eachEvent in event.events" ng-class="{active: event.isGroupShown(eachEvent)}">
       <div class="cover">
         <img ng-src="{{eachEvent.image}}" alt="">
         <div class="info">
@@ -12,8 +12,8 @@
             <i class="ion-link"></i> <a style="font-weight: 500; text-decoration: none;" ng-href="#/tabs/event/{{$index}}">Details</a>
           </div>
           <div class="tickets-left">
-<!--             <i class="fa fa-ticket"></i> 240 Tickets Left
- -->          </div>
+            <i class="fa fa-ticket"></i><!--  240 Tickets Left -->
+          </div>
         </div>
       </div>
       <div class="body">
