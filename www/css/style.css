@@ -20,6 +20,10 @@
 	font-size: 22px;
 }
 
+.menu-text {
+  color: #fff !important;
+  background-color: #33cd5f !important;
+}
 
 .item.item-accordion {
   line-height: 38px;

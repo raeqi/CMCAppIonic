@@ -47,53 +47,25 @@ angular.module('SimpleRESTIonic.controllers', [])
         menu.go = go;
     })
 
-    .controller('EventCtrl', function($state) {
+    .controller('EventCtrl', function($state, EventsModel) {
         var event = this;
 
         var navTitle = '<img style="border-radius: 50%; max-width:100%; max-height:100%;" src="https://www.ulife.utoronto.ca/uploads/organization/icon/6488/tb_12.jpg"/>'
-        var events = [
-            {
-                image: 'http://mmbiz.qpic.cn/mmbiz/m2bSKBPIGnIdWxc5iaTxFzRFaXjM1jn9UXmU8jrNpCMrKFY4dvf93NEPC7tmbibQR5KqoXeZd2t269iawlkYeVibbQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1',
-                url: 'http://mp.weixin.qq.com/s?__biz=MjM5NDI1MDE2NA==&mid=407415080&idx=1&sn=6e13e201460e863b01f3fe25f30f15b3&scene=4#wechat_redirect',
-                info: 'UTCMC',
-                title: '漫长的告别 是青春盛宴',
-                location: '93 Charles St. West (Isabel Bader Theatre)',
-                date: '4月8日周六 6pm-9:30pm',
-                price: {
-                    regular: '25',
-                    vip: '20',
-                    premium: '35'
-                }
-            },
-            {
-                image: 'http://mmbiz.qpic.cn/mmbiz/m2bSKBPIGnJibaXoQVoTd7TEzj9hoFc5WrfsaUocfOjGibLe87x1dGZaW6iaesJcj7FUcvvmqf6OFicv9dbw9slL3Q/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1',
-                url: 'http://mp.weixin.qq.com/s?__biz=MjM5NDI1MDE2NA==&mid=400480556&idx=1&sn=972cb444255c8634e231ac085cb63d94&scene=4#wechat_redirect',
-                info: 'UTCMC·K王',
-                title: '决赛在即，锋芒尽露',
-                location: '93 Charles St. West (Isabel Bader Theatre)',
-                date: '11月21日 6pm-9:30pm',
-                price: {
-                    regular: '25',
-                    vip: '20',
-                    premium: '35'
-                }
-            },
-            {
-                image: 'http://mmbiz.qpic.cn/mmbiz/m2bSKBPIGnK1dL6JloSNy0cESLDFL8D9ftyfBydLiaTPKx4vTSiaNMn5qDJIcLCfqmg3m3fCOkfLkGicOLG2k3g9w/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1',
-                url: 'http://mp.weixin.qq.com/s?__biz=MjM5NDI1MDE2NA==&mid=400243417&idx=1&sn=53e80e5e94c22be853d4e8777f9c7654&scene=4#wechat_redirect',
-                info: 'UTCMC·K王',
-                title: '魔王驾到！！！',
-                location: 'OISE Auditorium',
-                date: '11月6日 6pm-9:30pm',
-                price: {
-                    regular: '25',
-                    vip: '20',
-                    premium: '35'
-                }
-            }
-        ];
+        var events = [];
 
         var shownGroup;
+
+        function init() {
+            getAll();
+        }
+
+        function getAll() {
+            EventsModel.all()
+                .then(function (result) {
+                    event.events = result.data.data;
+                });
+        }
+
         /*
         * if given group is the selected group, deselect it
         * else, select the given group
@@ -114,6 +86,8 @@ angular.module('SimpleRESTIonic.controllers', [])
         event.title = navTitle;
         event.toggleGroup = toggleGroup;
         event.isGroupShown = isGroupShown;
+        event.getAll = getAll;
+        event.init = init;
 
     })
 
